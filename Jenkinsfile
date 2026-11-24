@@ -1,9 +1,13 @@
 pipeline {
     agent{
         docker{
-            image 'node:14-alpine' //Image Docker Node.js
+            image 'node:24-alpine' //Image Docker Node.js
             args '-p 5001:5001'
         }
+    }
+    environment {
+        HOME = '/tmp'
+        npm_config_cache = '/tmp/.npm'
     }
     
     stages {        
